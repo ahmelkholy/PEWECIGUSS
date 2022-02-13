@@ -10,7 +10,20 @@
 \usepackage{lettrine}
 \usepackage{subfig}
 \usepackage{fancyhdr} % fancy package
-tt
+\usepackage[some]{background}
+
+
+
+
+\SetBgContents{2021 22nd International Middle East Power Systems Conference (MEPCON) | 978-1-6654-1998-7/21/\$31.00 ©2021 IEEE | DOI: 10.1109/MEPCON50283.2021.9686294}% Set contents
+\SetBgColor{black!99}
+\SetBgPosition{current page.west}% Select location
+\SetBgVshift{-1.0cm}% Add vertical shift (results in a shift in x direction due to rotation)
+\SetBgOpacity{1.0}% Select opacity
+\SetBgAngle{90.0}% Select rotation of logo
+\SetBgScale{0.8}% Select scale factor of logo
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FooterLift
 \makeatletter
 \def\ps@headings{% default to standard twoside headers, no footers
@@ -110,7 +123,7 @@ Wave energy has a great potential as a renewable energy source. However, the int
 \begin{IEEEkeywords}
 Wave Energy, PM linear generator, Egypt costs, Dc micogrid, WecSim
 \end{IEEEkeywords}
-
+\BgThispage
 \section{Introduction}
 \lettrine{T}he limited fossil fuel with the corresponding increase in its cost forced electrical utilities to move forward renewable energy sources \cite{elkholy2020general,elkholy2018advanced}. In this regard, wave energy represented one of the attractive renewable energy sources due to its cleanness and availability on a wide scale. The wave energy potential has been assessed by many parties \cite{1,2,eslkoly2017islanding}. In \cite{1}, the assessment was done in the Gulf of Mexico and Caribbean over a period of 30 years and the sites having maximum energy potential could be identified. In \cite{2}, current methods used for characterizing wave energy resources and identifying expected generation were revised. Table.~\ref{tabintro} presents the wave energy potential for different locations all over the world \cite{3} Reference \cite{3}  presents the wave energy potential for different locations all over the world. In order to extract wave energy, usually wave energy converters through linear generators are used due to its effectiveness, reduced complexity and  less maintenance time due to the less moving parts number comparing to other technologies. There are various technologies of wave energy converters such as Oscillating Water Column, Archimedes wave swing, Oscillating Bodies, and so on \cite{3}.
 
@@ -182,7 +195,7 @@ The reference model 3 (RM3) is wave power buoy \cite{neary2014methodology}; this
 According to the manufacturing company \cite{neary2014methodology}, the number of 100 units can generate up to $30 mW$ at $30 kV$ throw rise cable. The design stages for the RM3 device and matrix are the first stage, the location weather such as the privileged wind speed and direction secondly water depths because this device is mounted in the water depth range from $40:100 m$ thirdly the effect of the RM3 matrix in the marine life. Then, determine the operating wave properties. The wave energy flux $Q$ for an irregular type of wave in deep ocean water is shown in Eq.~\ref{J} via "linear wave theory"\cite{reviewofwaveenergy}.
 
 \begin{equation}
-Q=\dfrac{\rho \times g^2}{64\pi} \times L^2 \times t\label{J}
+Q=\dfrac{\rho * g^2}{64\pi} * L^2 * t\label{J}
 \end{equation}
 
 
@@ -190,7 +203,7 @@ Where the $L$ is the wave height, $t$ is the wave period, $g$ is the gravity acc
 
 
 \begin{equation}
-	P(kW/M)=\ 0.49\ L^2 \times t\label{P}
+	P(kW/M)=\ 0.49\ L^2 * t\label{P}
 \end{equation}
 As previously stated, RM3 is utilised to transfer mechanical energy to electrical energy via one of two techniques, the first is using a hydraulic power take-off system (PTO). The second technique, on the other hand, is less effective in generating power but requires less maintenance because mechanical action is immediately converted into electrical energy using a permanent magnet linear generator (PMLG), Fig.~\ref{rm3lin} depicts the method's design. The linear generator parameters are indicated in Table.~\ref{tab1}.
 
@@ -308,19 +321,19 @@ There are different classifications of ESSs depending on the various shares of m
 In this study, the whole performance of battery with all characteristics of current, voltage, SOC, and temperature is attracting a great attention rather than the electromechanical behavior.  In this work, the stated equivalent circuit model of a battery is used. The detailed electrical equivalent circuit model of the used battery is shown in Fig.~\ref{Electrical Equivalent Circuit Model}.
 \subsubsection{State of charge calculation}
 \begin{equation}
-	soc=soc_0 \times e^{-5.738(A-B)}-\frac{1}{3600\times1.1}\times \int_{t1}^{t2}{i_b\ dt}\label{Soc}
+	soc=soc_{0} * e^{-5.738(A-B)}-\frac{1}{3600*1.1}* \int_{t1}^{t2} i_b\ dt\label{Soc}
 \end{equation}
 
-Where, $A$ is $\frac{1}{T-209.9}$, and $B$ is $\frac{1}{T_{ref}-209.9}$, $SOC_0$ is the initial $SOC$, $T$ is the cell Temperature, $T_{ref}$ is the reference Temperature, $i_{b}$ is the battery cell current, and $t$ is the time.
+Where, $A$ is $1/(T-209.9)$, and $B$ is $1/(T_{ref}-209.9)$, $SOC_0$ is the initial $SOC$, $T$ is the cell Temperature, $T_{ref}$ is the reference Temperature, $i_{b}$ is the battery cell current, and $t$ is the time.
 \subsubsection{Calculation of voltage drops}
 \begin{equation}
-	V_0 = i_b \times R_0\label{vo}
+	V_0 = i_b * R_0\label{vo}
 \end{equation}
 \begin{equation}
-	V_1=\int_{0}^{t}{\left(\frac{i_b}{C_1}\right)-\left(\frac{V_1}{R_1\times C_{1}}\right) dt} \label{v1}
+	V_1=\int_{0}^{t} \frac{i_b}{C_1}-\frac{V_1}{R_1 * C_{1}} dt \label{v1}
 \end{equation}
 \begin{equation}
-	V_2=\int_{0}^{t}{\left(\frac{i_b}{C_2}\right)-\left(\frac{V_2}{R_2\times C_{2}}\right) dt} \label{v2}
+	V_2=\int_{0}^{t} \frac{i_b}{C_2}-\frac{V_2}{R_2 * C_{2}} dt \label{v2}
 \end{equation}
 \begin{equation}
 	V_{cell}= V_{oc}-V_0-V_1-V_2\label{vcell}
@@ -344,13 +357,13 @@ As shown in Fig.~\ref{sys}, the DC-DC converters, illustrated in Fig.~\ref{Basic
 \end{enumerate}
 The output voltage is given as:
 \begin{equation}
-	v_o=\ \frac{v_s}{(1-D)}\label{V0}
+	v_o=\ \frac{v_s}{1-D}\label{V0}
 \end{equation}
 \begin{equation}
-	L_{min}=\frac{\left(1-D\right)^2 \times R \times D}{2f},\ L>L_{min}\label{lmin}
+	L_{min}=\frac{(1-D)^2 * R * D}{2f},\ L>L_{min}\label{lmin}
 \end{equation}
 \begin{equation}
-	{C_{min}=\frac{D\times v_o}{\Delta v\times R \times f}},\ C>C_{min}\label{cmin}
+	C_{min}=\frac{D*v_o}{\Delta v* R * f},\ C>C_{min}\label{cmin}
 \end{equation}
 
 where, $v_o$ is the output voltage, $v_s$ is the input voltage, $D$ is the duty cycle, $R$  represents the load,(dc bus), $f$ is the switching frequency. $\Delta v$ is the value of the ripple voltage, $L_{min}$ is the minimum value of the inductance,and $C_{min}$ is the minimum value of the capacitance.
